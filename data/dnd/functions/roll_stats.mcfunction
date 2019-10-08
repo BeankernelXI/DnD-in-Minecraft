@@ -136,7 +136,3 @@ scoreboard players operation TOTAL temp += ROLL4 temp
 scoreboard players operation TOTAL temp -= LOWEST temp
 
 scoreboard players operation @s charisma = TOTAL temp
-
-
-function dnd:recalc_stat_mods
-

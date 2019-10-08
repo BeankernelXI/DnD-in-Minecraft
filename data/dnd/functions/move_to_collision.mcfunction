@@ -11,6 +11,6 @@ scoreboard players add MOVE2COLLISION logfile 1
 # "distance" is measured from where the cloud was before the first call to this function
 execute as @s[distance=0..50,tag=!collision] at @s run tp ^ ^ ^0.2
 execute as @s[distance=0..50,tag=!collision] at @s unless block ~ ~ ~ minecraft:air run tag @s add collision
-execute as @s[distance=0..50,tag=collision] at @s unless block ~ ~ ~ minecraft:air run tp ^ ^ ^-0.2
+execute as @s[distance=0..50,tag=collision] at @s unless block ~ ~ ~ minecraft:air unless score @s effect_id = PICK_BLOCK effect_id run tp ^ ^ ^-0.2
 execute as @s[distance=0..50,tag=!collision] run function dnd:move_to_collision
 # ^^ this last line MUST NOT use "at" ^^

@@ -2,7 +2,13 @@
 # as any player
 scoreboard players add SETUP_PLAYER logfile 1
 
-# For each player on a team, setup their scoreboards and inventories
+# Unfortunately we are going to need player ids :(
+# strange note: merely asking the question "* player_id" will cause everyone without a player_id to be given an id of 0
+execute as @s unless score @s player_id matches 1.. run tag @s add needs_id
+scoreboard players operation @s[tag=needs_id] player_id > * player_id
+scoreboard players operation @s[tag=needs_id] player_id += ONE const
+tag @s[tag=needs_id] remove needs_id
+
 
 
 # TODO: instead of relying on setting tags myself, initiate a dialogue with any fresh faces
@@ -17,4 +23,4 @@ function dnd:recalc_stat_mods
 
 
 
-tag @s add setup_complete
+# tag @s add setup_complete

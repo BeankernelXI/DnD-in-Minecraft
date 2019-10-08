@@ -1,6 +1,11 @@
 scoreboard objectives add logfile dummy "Executions"
+# scoreboard objectives setdisplay sidebar logfile
 scoreboard players reset * logfile
 scoreboard players add LOAD logfile 1
+
+
+# TODO: Set gamerules
+
 
 function dnd:initialize_scoreboard
 
