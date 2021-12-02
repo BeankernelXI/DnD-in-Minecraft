@@ -2,6 +2,10 @@
 # as any player
 scoreboard players add SETUP_PLAYER logfile 1
 
+# they'll get excited for a second and then never be able to craft again
+recipe give @s *
+recipe take @s *
+
 # Unfortunately we are going to need player ids :(
 # strange note: merely asking the question "* player_id" will cause everyone without a player_id to be given an id of 0
 execute as @s unless score @s player_id matches 1.. run tag @s add needs_id

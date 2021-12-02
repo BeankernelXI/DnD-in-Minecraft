@@ -21,6 +21,7 @@ scoreboard players set MILLION const 1000000
 scoreboard objectives add effect_id dummy
 # use like this: scoreboard players operation @s effect_id = AOE effect_id
 # using tags works too, but tags can't easily be transfered so they impede generalization
+# if you find yourself having to look up these numbers you've gone wrong somewhere
 scoreboard players set AOE effect_id 1
 scoreboard players set PICK_BLOCK effect_id 2
 
@@ -55,11 +56,11 @@ scoreboard objectives add pRNG_seed dummy
 # seeding with a hardcoded value for consistency in testing and for when the global time values are small
 scoreboard players set RNG pRNG_seed 3412
 
-
-team add red [{"text":"Red","color":"red"},{"text":" Player","color":"white"}]
-team modify red prefix [{"text":"Samus Aran","bold":true,"color":"red"},{"text":" (","bold":false,"color":"white"}]
-team modify red suffix [{"text":")"}]
-
+# This is super cool but VERY hardcoded. Could give some character even if it isn't customizable
+team add samus [{"text":"Red","color":"red"},{"text":" Player","color":"white"}]
+team modify samus prefix [{"text":"Samus Aran","bold":true,"color":"red"},{"text":" (","bold":false,"color":"white"}]
+team modify samus suffix [{"text":")"}]
+# Intentionally keeping team color white. Maybe it's a mistake that'll bite me later but I can't think of any reason now
 
 
 

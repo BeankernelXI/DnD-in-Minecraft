@@ -1,7 +1,9 @@
 # Assumed context:
-# AT center, as anything (server ideally)
+# at the center, as the cloud or the looking player
 scoreboard players add AOE logfile 1
 
+# we don't currently use the AS
+# when we get to it we'll be able to remove "blue_dust" and instead apply tags dynamically based on effect_id
 
 summon minecraft:area_effect_cloud ~ ~ ~ {Duration:2000000,Tags:["aoe","animation","blue_dust"],Rotation:[0f,0f]}
 summon minecraft:area_effect_cloud ~ ~ ~ {Duration:2000000,Tags:["aoe","animation","blue_dust"],Rotation:[5f,0f]}
@@ -78,4 +80,13 @@ summon minecraft:area_effect_cloud ~ ~ ~ {Duration:2000000,Tags:["aoe","animatio
 
 # in theory we can use the scoreboard to loop this and make it general
 execute as @e[tag=aoe] at @s run tp ^ ^ ^3
+
+scoreboard players operation @e[tag=aoe] player_id = @s player_id
+scoreboard players operation @e[tag=aoe] effect_id = @s effect_id
+
+# and if you clicked they get to live!
+execute if score @s click_carrot matches 1.. as @e[tag=target] run tag @s add locked
+execute if score @s click_carrot matches 1.. as @e[tag=aoe] run tag @s add locked
+
+
 tag @e[tag=aoe] remove aoe
